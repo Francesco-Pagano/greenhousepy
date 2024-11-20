@@ -26,3 +26,9 @@ class TestGreenhouse(TestCase):
         mock_moisture_sensor.return_value = 501
         gh = Greenhouse()
         self.assertRaises(GreenhouseError, gh.measure_soil_moisture)
+
+    @patch.object(GPIO, "output")
+    def test_turn_on_springler(self, mock_springler: Mock):
+        system = Greenhouse()
+        system.turn_on_sprinkler()
+        mock_springler.assert_called_once(system.SPRINKLER_PIN, True)
