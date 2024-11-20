@@ -19,4 +19,4 @@ class TestGreenhouse(TestCase):
     def test_measure_soil_moisture_below_range(self, mock_moisture_sensor: Mock):
         mock_moisture_sensor.return_value = 299
         gh = Greenhouse()
-        self.assertRaise(GreenhouseError, gh.measure_soil_moisture())
+        self.assertRaises(GreenhouseError, gh.measure_soil_moisture)
