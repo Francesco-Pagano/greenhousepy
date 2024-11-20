@@ -1,4 +1,3 @@
-
 try:
     import RPi.GPIO as GPIO
     import board
@@ -7,7 +6,6 @@ except:
     import mock.GPIO as GPIO
     import mock.board as board
     import mock.seesaw as seesaw
-
 
 class Greenhouse:
 
@@ -34,8 +32,8 @@ class Greenhouse:
         return moisture
 
     def turn_on_sprinkler(self) -> None:
-        # To be implemented
-        pass
+        GPIO.output(self.SPRINKLER_PIN, True)
+        self.sprinkler_on = True
 
     def turn_off_sprinkler(self) -> None:
         # To be implemented
