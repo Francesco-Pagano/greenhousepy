@@ -37,7 +37,7 @@ class TestGreenhouse(TestCase):
     @patch.object(GPIO, "output")
     def test_turn_off_sprinkler(self, mock_sprinkler: Mock):
         system = Greenhouse()
-        system.turn_on_sprinkler()
+        system.turn_off_sprinkler()
         mock_sprinkler.assert_called_once_with(system.SPRINKLER_PIN, False)
         self.assertFalse(system.sprinkler_on)
 
